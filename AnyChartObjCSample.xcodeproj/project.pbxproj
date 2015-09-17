@@ -7,26 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C46A68296567EFB0307B539E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A35448378BD88EDD8A3A92B /* libPods.a */; };
 		FAB0D5861BAA624A0095AEDB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D5851BAA624A0095AEDB /* main.m */; };
 		FAB0D5891BAA624A0095AEDB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D5881BAA624A0095AEDB /* AppDelegate.m */; };
 		FAB0D58C1BAA624A0095AEDB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D58B1BAA624A0095AEDB /* ViewController.m */; };
 		FAB0D58F1BAA624A0095AEDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB0D58D1BAA624A0095AEDB /* Main.storyboard */; };
 		FAB0D5911BAA624A0095AEDB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB0D5901BAA624A0095AEDB /* Images.xcassets */; };
 		FAB0D5941BAA624A0095AEDB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB0D5921BAA624A0095AEDB /* LaunchScreen.xib */; };
-		FAB0D5A01BAA624A0095AEDB /* AnyChartObjCSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D59F1BAA624A0095AEDB /* AnyChartObjCSampleTests.m */; };
+		FAB0D5AD1BAA626E0095AEDB /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D5AC1BAA626E0095AEDB /* Data.m */; };
+		FAB0D5B31BAA77D60095AEDB /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D5B21BAA77D60095AEDB /* Product.m */; };
+		FAB0D5B71BAA781F0095AEDB /* Industry.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D5B61BAA781F0095AEDB /* Industry.m */; };
+		FAB0D5BA1BAA785A0095AEDB /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D5B91BAA785A0095AEDB /* Region.m */; };
+		FAB0D5BD1BAA78740095AEDB /* SalesRep.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D5BC1BAA78740095AEDB /* SalesRep.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		FAB0D59A1BAA624A0095AEDB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAB0D5781BAA624A0095AEDB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FAB0D57F1BAA624A0095AEDB;
-			remoteInfo = AnyChartObjCSample;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		3D1551B8ED54951273562DCA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6A35448378BD88EDD8A3A92B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		72A69BB41B6702E9A2F9794C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FAB0D5801BAA624A0095AEDB /* AnyChartObjCSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyChartObjCSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB0D5841BAA624A0095AEDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAB0D5851BAA624A0095AEDB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -37,9 +35,16 @@
 		FAB0D58E1BAA624A0095AEDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAB0D5901BAA624A0095AEDB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FAB0D5931BAA624A0095AEDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		FAB0D5991BAA624A0095AEDB /* AnyChartObjCSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnyChartObjCSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAB0D59E1BAA624A0095AEDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAB0D59F1BAA624A0095AEDB /* AnyChartObjCSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnyChartObjCSampleTests.m; sourceTree = "<group>"; };
+		FAB0D5AB1BAA626E0095AEDB /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Data.h; path = Classes/Data.h; sourceTree = "<group>"; };
+		FAB0D5AC1BAA626E0095AEDB /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Data.m; path = Classes/Data.m; sourceTree = "<group>"; };
+		FAB0D5B11BAA77D60095AEDB /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Product.h; path = Classes/Product.h; sourceTree = "<group>"; };
+		FAB0D5B21BAA77D60095AEDB /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Product.m; path = Classes/Product.m; sourceTree = "<group>"; };
+		FAB0D5B51BAA781F0095AEDB /* Industry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Industry.h; path = Classes/Industry.h; sourceTree = "<group>"; };
+		FAB0D5B61BAA781F0095AEDB /* Industry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Industry.m; path = Classes/Industry.m; sourceTree = "<group>"; };
+		FAB0D5B81BAA785A0095AEDB /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Region.h; path = Classes/Region.h; sourceTree = "<group>"; };
+		FAB0D5B91BAA785A0095AEDB /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Region.m; path = Classes/Region.m; sourceTree = "<group>"; };
+		FAB0D5BB1BAA78740095AEDB /* SalesRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SalesRep.h; path = Classes/SalesRep.h; sourceTree = "<group>"; };
+		FAB0D5BC1BAA78740095AEDB /* SalesRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SalesRep.m; path = Classes/SalesRep.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,25 +52,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAB0D5961BAA624A0095AEDB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				C46A68296567EFB0307B539E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E2D33FCCE277541023D1F17B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				72A69BB41B6702E9A2F9794C /* Pods.debug.xcconfig */,
+				3D1551B8ED54951273562DCA /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FAB0D5771BAA624A0095AEDB = {
 			isa = PBXGroup;
 			children = (
 				FAB0D5821BAA624A0095AEDB /* AnyChartObjCSample */,
-				FAB0D59C1BAA624A0095AEDB /* AnyChartObjCSampleTests */,
+				FAB0D5B01BAA62900095AEDB /* Frameworks */,
 				FAB0D5811BAA624A0095AEDB /* Products */,
+				E2D33FCCE277541023D1F17B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,7 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				FAB0D5801BAA624A0095AEDB /* AnyChartObjCSample.app */,
-				FAB0D5991BAA624A0095AEDB /* AnyChartObjCSampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,13 +89,11 @@
 		FAB0D5821BAA624A0095AEDB /* AnyChartObjCSample */ = {
 			isa = PBXGroup;
 			children = (
+				FAB0D5A91BAA62510095AEDB /* Views */,
+				FAB0D5AA1BAA625B0095AEDB /* Data */,
 				FAB0D5871BAA624A0095AEDB /* AppDelegate.h */,
 				FAB0D5881BAA624A0095AEDB /* AppDelegate.m */,
-				FAB0D58A1BAA624A0095AEDB /* ViewController.h */,
-				FAB0D58B1BAA624A0095AEDB /* ViewController.m */,
-				FAB0D58D1BAA624A0095AEDB /* Main.storyboard */,
 				FAB0D5901BAA624A0095AEDB /* Images.xcassets */,
-				FAB0D5921BAA624A0095AEDB /* LaunchScreen.xib */,
 				FAB0D5831BAA624A0095AEDB /* Supporting Files */,
 			);
 			path = AnyChartObjCSample;
@@ -102,21 +108,49 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FAB0D59C1BAA624A0095AEDB /* AnyChartObjCSampleTests */ = {
+		FAB0D5A91BAA62510095AEDB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FAB0D59F1BAA624A0095AEDB /* AnyChartObjCSampleTests.m */,
-				FAB0D59D1BAA624A0095AEDB /* Supporting Files */,
+				FAB0D58A1BAA624A0095AEDB /* ViewController.h */,
+				FAB0D58B1BAA624A0095AEDB /* ViewController.m */,
+				FAB0D58D1BAA624A0095AEDB /* Main.storyboard */,
+				FAB0D5921BAA624A0095AEDB /* LaunchScreen.xib */,
 			);
-			path = AnyChartObjCSampleTests;
+			name = Views;
 			sourceTree = "<group>";
 		};
-		FAB0D59D1BAA624A0095AEDB /* Supporting Files */ = {
+		FAB0D5AA1BAA625B0095AEDB /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				FAB0D59E1BAA624A0095AEDB /* Info.plist */,
+				FAB0D5B41BAA77DB0095AEDB /* Models */,
+				FAB0D5AB1BAA626E0095AEDB /* Data.h */,
+				FAB0D5AC1BAA626E0095AEDB /* Data.m */,
 			);
-			name = "Supporting Files";
+			name = Data;
+			sourceTree = "<group>";
+		};
+		FAB0D5B01BAA62900095AEDB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A35448378BD88EDD8A3A92B /* libPods.a */,
+			);
+			name = Frameworks;
+			path = AnyChartObjCSample;
+			sourceTree = "<group>";
+		};
+		FAB0D5B41BAA77DB0095AEDB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FAB0D5B11BAA77D60095AEDB /* Product.h */,
+				FAB0D5B21BAA77D60095AEDB /* Product.m */,
+				FAB0D5B51BAA781F0095AEDB /* Industry.h */,
+				FAB0D5B61BAA781F0095AEDB /* Industry.m */,
+				FAB0D5B81BAA785A0095AEDB /* Region.h */,
+				FAB0D5B91BAA785A0095AEDB /* Region.m */,
+				FAB0D5BB1BAA78740095AEDB /* SalesRep.h */,
+				FAB0D5BC1BAA78740095AEDB /* SalesRep.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,9 +160,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAB0D5A31BAA624A0095AEDB /* Build configuration list for PBXNativeTarget "AnyChartObjCSample" */;
 			buildPhases = (
+				38B433D2BE0B52810B8792AD /* Check Pods Manifest.lock */,
 				FAB0D57C1BAA624A0095AEDB /* Sources */,
 				FAB0D57D1BAA624A0095AEDB /* Frameworks */,
 				FAB0D57E1BAA624A0095AEDB /* Resources */,
+				1C982083A00EA33B3DB0CDBC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -138,24 +174,6 @@
 			productName = AnyChartObjCSample;
 			productReference = FAB0D5801BAA624A0095AEDB /* AnyChartObjCSample.app */;
 			productType = "com.apple.product-type.application";
-		};
-		FAB0D5981BAA624A0095AEDB /* AnyChartObjCSampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FAB0D5A61BAA624A0095AEDB /* Build configuration list for PBXNativeTarget "AnyChartObjCSampleTests" */;
-			buildPhases = (
-				FAB0D5951BAA624A0095AEDB /* Sources */,
-				FAB0D5961BAA624A0095AEDB /* Frameworks */,
-				FAB0D5971BAA624A0095AEDB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FAB0D59B1BAA624A0095AEDB /* PBXTargetDependency */,
-			);
-			name = AnyChartObjCSampleTests;
-			productName = AnyChartObjCSampleTests;
-			productReference = FAB0D5991BAA624A0095AEDB /* AnyChartObjCSampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -168,10 +186,6 @@
 				TargetAttributes = {
 					FAB0D57F1BAA624A0095AEDB = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					FAB0D5981BAA624A0095AEDB = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = FAB0D57F1BAA624A0095AEDB;
 					};
 				};
 			};
@@ -189,7 +203,6 @@
 			projectRoot = "";
 			targets = (
 				FAB0D57F1BAA624A0095AEDB /* AnyChartObjCSample */,
-				FAB0D5981BAA624A0095AEDB /* AnyChartObjCSampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -205,43 +218,58 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAB0D5971BAA624A0095AEDB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C982083A00EA33B3DB0CDBC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
-/* End PBXResourcesBuildPhase section */
+		38B433D2BE0B52810B8792AD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FAB0D57C1BAA624A0095AEDB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB0D5BA1BAA785A0095AEDB /* Region.m in Sources */,
 				FAB0D58C1BAA624A0095AEDB /* ViewController.m in Sources */,
+				FAB0D5B71BAA781F0095AEDB /* Industry.m in Sources */,
+				FAB0D5B31BAA77D60095AEDB /* Product.m in Sources */,
+				FAB0D5BD1BAA78740095AEDB /* SalesRep.m in Sources */,
 				FAB0D5891BAA624A0095AEDB /* AppDelegate.m in Sources */,
 				FAB0D5861BAA624A0095AEDB /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAB0D5951BAA624A0095AEDB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FAB0D5A01BAA624A0095AEDB /* AnyChartObjCSampleTests.m in Sources */,
+				FAB0D5AD1BAA626E0095AEDB /* Data.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FAB0D59B1BAA624A0095AEDB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FAB0D57F1BAA624A0095AEDB /* AnyChartObjCSample */;
-			targetProxy = FAB0D59A1BAA624A0095AEDB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FAB0D58D1BAA624A0095AEDB /* Main.storyboard */ = {
@@ -347,6 +375,7 @@
 		};
 		FAB0D5A41BAA624A0095AEDB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72A69BB41B6702E9A2F9794C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AnyChartObjCSample/Info.plist;
@@ -357,45 +386,12 @@
 		};
 		FAB0D5A51BAA624A0095AEDB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D1551B8ED54951273562DCA /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AnyChartObjCSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		FAB0D5A71BAA624A0095AEDB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = AnyChartObjCSampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnyChartObjCSample.app/AnyChartObjCSample";
-			};
-			name = Debug;
-		};
-		FAB0D5A81BAA624A0095AEDB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = AnyChartObjCSampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnyChartObjCSample.app/AnyChartObjCSample";
 			};
 			name = Release;
 		};
@@ -418,14 +414,7 @@
 				FAB0D5A51BAA624A0095AEDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		FAB0D5A61BAA624A0095AEDB /* Build configuration list for PBXNativeTarget "AnyChartObjCSampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FAB0D5A71BAA624A0095AEDB /* Debug */,
-				FAB0D5A81BAA624A0095AEDB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

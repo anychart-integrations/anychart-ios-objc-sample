@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Data.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [Data shared];
+    
+    NSLog(@"Years: %@", [[Data shared] years]);
+    NSLog(@"Products: %@", [[Data shared] products]);
+    NSLog(@"Industries: %@", [[Data shared] industries]);
+    NSLog(@"Regions: %@", [[Data shared] regions]);
+    NSLog(@"Sales reps: %@", [[Data shared] salesReps]);
+    NSLog(@"Revenue by industry: %@", [[Data shared] revenueByIndustryInYear:nil inQuarter:nil forProduct:nil inRegion:nil forIndustry:nil salesRep:nil]);
+    
     return YES;
 }
 
