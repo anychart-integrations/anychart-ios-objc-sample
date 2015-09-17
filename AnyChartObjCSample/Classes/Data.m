@@ -124,7 +124,7 @@
         NSTimeInterval randomInterval = arc4random_uniform(dateRange);
         NSDate *date = [startDate dateByAddingTimeInterval:randomInterval];
         
-        NSUInteger quarter = [[NSCalendar currentCalendar] component:NSCalendarUnitQuarter fromDate:date];
+        int quarter = (int)[[NSCalendar currentCalendar] component:NSCalendarUnitQuarter fromDate:date];
         
         [self.db executeUpdate:@"INSERT INTO sales (date, quarter, product_id, region_id, rep_id, total) VALUES (?, ?, ?, ?, ?, ?);"
          , [dateFormat stringFromDate:date], [NSNumber numberWithInt:quarter], [NSNumber numberWithInt:arc4random_uniform(5)]
@@ -192,20 +192,14 @@
     return salesReps;
 }
 
-- (NSArray*)revenueByIndustryInYear:(NSNumber*)year
-                          inQuarter:(NSNumber*)quarter
-                         forProduct:(Product*)product
-                           inRegion:(Region*)region
-                        forIndustry:(Industry*)industry
-                           salesRep:(SalesRep*)salesRep {
+- (void)addFilters:(NSMutableString*)query params:(NSMutableDictionary*)params
+              year:(NSNumber*)year
+           quarter:(NSNumber*)quarter
+           product:(Product*)product
+            region:(Region*)region
+          industry:(Industry*)industry
+          salesRep:(SalesRep*)salesRep {
     
-    NSMutableArray *res = [[NSMutableArray alloc] init];
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    NSMutableString *query = [[NSMutableString alloc]
-                              initWithString:@"SELECT industry.name AS name, SUM(sales.total) AS revenue "
-                                              "FROM industry, sales, product "
-                                              "WHERE sales.product_id = product.id AND "
-                                              "product.industry_id = industry.id" ];
     if (year) {
         [query appendString:@" AND strftime('%Y', sales.date)=:year"];
         [params setObject:year forKey:@"year"];
@@ -227,7 +221,7 @@
     }
     
     if (industry) {
-        [query appendString:@" AND industry.id=:industry"];
+        [query appendString:@" AND product.industry_id=:industry AND industry.id=:industry"];
         [params setObject:[NSNumber numberWithInt:industry.industryId] forKey:@"insdustry"];
     }
     
@@ -235,6 +229,22 @@
         [query appendString:@" AND sales.rep_id=:sales_rep"];
         [params setObject:[NSNumber numberWithInt:salesRep.salesRepId] forKey:@"sales_rep"];
     }
+}
+
+- (NSArray*)revenueByIndustryInYear:(NSNumber*)year
+                          inQuarter:(NSNumber*)quarter
+                         forProduct:(Product*)product
+                           inRegion:(Region*)region
+                        forIndustry:(Industry*)industry
+                           salesRep:(SalesRep*)salesRep {
+    
+    NSMutableArray *res = [[NSMutableArray alloc] init];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    NSMutableString *query = [[NSMutableString alloc]
+                              initWithString:@"SELECT industry.name AS name, SUM(sales.total) AS revenue "
+                                              "FROM industry, sales, product "
+                                              "WHERE sales.product_id = product.id"];
+    [self addFilters:query params:params year:year quarter:quarter product:product region:region industry:industry salesRep:salesRep];
     
     [query appendString:@" GROUP BY industry.id ORDER BY 1"];
     
@@ -253,6 +263,83 @@
                         forIndustry:(Industry *)industry
                            salesRep:(SalesRep *)salesRep {
     NSMutableArray *res = [[NSMutableArray alloc] init];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    NSMutableString *query = [[NSMutableString alloc]
+                              initWithString:@"SELECT sales_reps.name AS name, SUM(sales.total) AS revenue "
+                                              "FROM industry, sales, sales_reps "
+                                              "WHERE sales_reps.id = sales.rep_id"];
+    [self addFilters:query params:params year:year quarter:quarter product:product region:region industry:industry salesRep:salesRep];
+    [query appendString:@" GROUP BY sales_reps.id ORDER BY 1"];
+    
+    FMResultSet *s = [self.db executeQuery: query withParameterDictionary:params];
+    while ([s next]) {
+        [res addObject:@{@"revenue": [NSNumber numberWithDouble:[s doubleForColumn:@"revenue"]],
+                         @"name": [s stringForColumn:@"name"]}];
+    }
+    return res;
+}
+
+- (NSArray*)revenueByProductInYear:(NSNumber*)year
+                         inQuarter:(NSNumber*)quarter
+                        forProduct:(Product*)product
+                          inRegion:(Region*)region
+                       forIndustry:(Industry*)industry
+                          salesRep:(SalesRep*)salesRep {
+    
+    NSMutableArray *res = [[NSMutableArray alloc] init];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    NSMutableString *query = [[NSMutableString alloc]
+                              initWithString:@"SELECT product.name AS name, SUM(sales.total) AS revenue "
+                                              "FROM industry, sales, product "
+                                              "WHERE sales.product_id = product.id"];
+    [self addFilters:query params:params year:year quarter:quarter product:product region:region industry:industry salesRep:salesRep];
+    [query appendString:@" GROUP BY product.id ORDER BY 1"];
+    
+    FMResultSet *s = [self.db executeQuery: query withParameterDictionary:params];
+    while ([s next]) {
+        [res addObject:@{@"revenue": [NSNumber numberWithDouble:[s doubleForColumn:@"revenue"]],
+                         @"name": [s stringForColumn:@"name"]}];
+    }
+    return res;
+}
+
+- (NSArray*)revenueByQuarterInYear:(NSNumber*)year
+                         inQuarter:(NSNumber*)quarter
+                        forProduct:(Product*)product
+                          inRegion:(Region*)region
+                       forIndustry:(Industry*)industry
+                          salesRep:(SalesRep*)salesRep {
+    NSMutableArray *res = [[NSMutableArray alloc] init];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    NSMutableString *query = [[NSMutableString alloc]
+                              initWithString:@"SELECT strftime('%Y', sales.date) AS year, "];
+    if (quarter) {
+        [query appendString:@"SUM(sales.total) AS revenue "];
+    }else {
+        [query appendString:@"SUM(CASE WHEN sales.quarter=0 THEN sales.total ELSE 0 END) AS q1, "
+                             "SUM(CASE WHEN sales.quarter=1 THEN sales.total ELSE 0 END) AS q2, "
+                             "SUM(CASE WHEN sales.quarter=2 THEN sales.total ELSE 0 END) AS q3, "
+                             "SUM(CASE WHEN sales.quarter=3 THEN sales.total ELSE 0 END) AS q4 "];
+    }
+    [query appendString:@"FROM sales, product WHERE 1"];
+    [self addFilters:query params:params year:year quarter:quarter product:product region:region industry:industry salesRep:salesRep];
+    [query appendString:@" GROUP BY 1 ORDER BY 1"];
+    
+    FMResultSet *s = [self.db executeQuery: query withParameterDictionary:params];
+    while ([s next]) {
+        if (quarter)
+            [res addObject:@{@"revenue": [NSNumber numberWithDouble:[s doubleForColumn:@"revenue"]],
+                             @"year": [NSNumber numberWithInt:[s intForColumn:@"year"]]}];
+        else
+            [res addObject:@{@"q1": [NSNumber numberWithDouble:[s doubleForColumn:@"q1"]],
+                             @"q2": [NSNumber numberWithDouble:[s doubleForColumn:@"q2"]],
+                             @"q3": [NSNumber numberWithDouble:[s doubleForColumn:@"q3"]],
+                             @"q4": [NSNumber numberWithDouble:[s doubleForColumn:@"q4"]],
+                             @"year": [NSNumber numberWithInt:[s intForColumn:@"year"]]}];
+    }
     return res;
 }
 

@@ -36,4 +36,18 @@
                         forIndustry:(Industry*)industry
                            salesRep:(SalesRep*)salesRep;
 
+- (NSArray*)revenueByProductInYear:(NSNumber*)year
+                         inQuarter:(NSNumber*)quarter
+                        forProduct:(Product*)product
+                          inRegion:(Region*)region
+                       forIndustry:(Industry*)industry
+                          salesRep:(SalesRep*)salesRep;
+
+- (NSArray*)revenueByQuarterInYear:(NSNumber*)year
+                         inQuarter:(NSNumber*)quarter
+                        forProduct:(Product*)product
+                          inRegion:(Region*)region
+                       forIndustry:(Industry*)industry
+                          salesRep:(SalesRep*)salesRep;
+
 @end
