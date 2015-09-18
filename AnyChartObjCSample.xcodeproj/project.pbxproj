@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C46A68296567EFB0307B539E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A35448378BD88EDD8A3A92B /* libPods.a */; };
+		FA958A4F1BABBAF6005562C9 /* chart.html in Resources */ = {isa = PBXBuildFile; fileRef = FA958A4E1BABBAF6005562C9 /* chart.html */; };
 		FAB0D5861BAA624A0095AEDB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D5851BAA624A0095AEDB /* main.m */; };
 		FAB0D5891BAA624A0095AEDB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D5881BAA624A0095AEDB /* AppDelegate.m */; };
 		FAB0D58C1BAA624A0095AEDB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D58B1BAA624A0095AEDB /* ViewController.m */; };
@@ -25,6 +26,7 @@
 		3D1551B8ED54951273562DCA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6A35448378BD88EDD8A3A92B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A69BB41B6702E9A2F9794C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FA958A4E1BABBAF6005562C9 /* chart.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = chart.html; sourceTree = "<group>"; };
 		FAB0D5801BAA624A0095AEDB /* AnyChartObjCSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyChartObjCSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB0D5841BAA624A0095AEDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAB0D5851BAA624A0095AEDB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				FAB0D58B1BAA624A0095AEDB /* ViewController.m */,
 				FAB0D58D1BAA624A0095AEDB /* Main.storyboard */,
 				FAB0D5921BAA624A0095AEDB /* LaunchScreen.xib */,
+				FA958A4E1BABBAF6005562C9 /* chart.html */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				FAB0D58F1BAA624A0095AEDB /* Main.storyboard in Resources */,
 				FAB0D5941BAA624A0095AEDB /* LaunchScreen.xib in Resources */,
 				FAB0D5911BAA624A0095AEDB /* Images.xcassets in Resources */,
+				FA958A4F1BABBAF6005562C9 /* chart.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
