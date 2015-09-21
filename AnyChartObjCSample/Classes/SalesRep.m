@@ -11,14 +11,11 @@
 @implementation SalesRep
 
 + (SalesRep*)salesRepWithId:(int)salesId name:(NSString*)name {
-    SalesRep *res = [[SalesRep alloc] init];
-    res->_salesRepId = salesId;
-    res->_name = name;
-    return res;
+    return [[SalesRep alloc] initWithId:salesId name:name];
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"[SalesRep id=%i, name=%@]", self.salesRepId, self.name];
+    return [NSString stringWithFormat:@"[SalesRep id=%i, name=%@]", self.identifier, self.name];
 }
 
 @end

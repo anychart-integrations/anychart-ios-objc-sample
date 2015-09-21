@@ -6,12 +6,9 @@
 //  Copyright (c) 2015 AnyChart. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "IdNameModel.h"
 
-@interface Region : NSObject
-
-@property (readonly) int regionId;
-@property (readonly) NSString* name;
+@interface Region : IdNameModel
 
 + (Region*)regionWithId:(int)regionId name:(NSString*)name;
 

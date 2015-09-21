@@ -72,8 +72,16 @@
     return [calendar dateFromComponents:components];
 }
 
+- (int)getQuarter:(NSInteger)month {
+    //known ios issue, NSCalendarUnitQuarter not working
+    if (month < 4) return 0;
+    if (month < 7) return 1;
+    if (month < 10) return 2;
+    return 3;
+}
+
 - (void)setup {
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"db_version"] isEqualToString:@"1.1"])
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"db_version"] isEqualToString:@"1.0"])
         return;
     
     [self.db executeStatements:@"DROP TABLE IF EXISTS industry;"
@@ -114,18 +122,20 @@
     [self.db beginTransaction];
     
     NSDate *startDate = [Data dateWithYear:2005 month:1 day:1];
-    NSDate *endDate = [Data dateWithYear:2015 month:1 day:1];
+    NSDate *endDate = [Data dateWithYear:2015 month:12 day:1];
     NSTimeInterval dateRange = [endDate timeIntervalSinceDate:startDate];
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
     for (int i = 0; i < 100000; i++) {
         NSTimeInterval randomInterval = arc4random_uniform(dateRange);
         NSDate *date = [startDate dateByAddingTimeInterval:randomInterval];
         
-        int quarter = (int)[[NSCalendar currentCalendar] component:NSCalendarUnitQuarter fromDate:date];
-        
+        int quarter = [self getQuarter:[gregorian component:NSCalendarUnitMonth fromDate:date]];
+
         [self.db executeUpdate:@"INSERT INTO sales (date, quarter, product_id, region_id, rep_id, total) VALUES (?, ?, ?, ?, ?, ?);"
          , [dateFormat stringFromDate:date], [NSNumber numberWithInt:quarter], [NSNumber numberWithInt:arc4random_uniform(5)]
          , [NSNumber numberWithInt:arc4random_uniform(5)], [NSNumber numberWithInt:arc4random_uniform(5)], [NSNumber numberWithDouble:100 + arc4random_uniform(900)]];
@@ -159,6 +169,14 @@
     return products;
 }
 
+- (Product*)productById:(NSNumber *)productId {
+    FMResultSet *s = [self.db executeQuery:@"SELECT id, industry_id, name FROM product WHERE id=?" withArgumentsInArray:@[productId]];
+    if (![s next]) return nil;
+    return [Product productWithId:[s intForColumnIndex:0]
+                         industry:[s intForColumnIndex:1]
+                             name:[s stringForColumnIndex:2]];
+}
+
 - (NSArray*)industries {
     NSMutableArray *industries = [[NSMutableArray alloc] init];
     
@@ -168,6 +186,13 @@
                                                   name:[s stringForColumnIndex:1]]];
     }
     return industries;
+}
+
+- (Industry*)industryById:(NSNumber *)industryId {
+    FMResultSet *s = [self.db executeQuery:@"SELECT id, name FROM industry WHERE id=?" withArgumentsInArray:@[industryId]];
+    if (![s next]) return nil;
+    return [Industry industryWithId:[s intForColumnIndex:0]
+                               name:[s stringForColumnIndex:1]];
 }
 
 - (NSArray*)regions {
@@ -181,6 +206,13 @@
     return regions;
 }
 
+- (Region*)regionById:(NSNumber *)regionId {
+    FMResultSet *s = [self.db executeQuery:@"SELECT id, name FROM region WHERE id=?" withArgumentsInArray:@[regionId]];
+    if (![s next]) return nil;
+    return [Region regionWithId:[s intForColumnIndex:0]
+                           name:[s stringForColumnIndex:1]];
+}
+
 - (NSArray*)salesReps {
     NSMutableArray *salesReps = [[NSMutableArray alloc] init];
     
@@ -192,17 +224,24 @@
     return salesReps;
 }
 
+- (SalesRep*)salesRepById:(NSNumber *)salesRepId {
+    FMResultSet *s = [self.db executeQuery:@"SELECT id, name FROM sales_reps WHERE id=?" withArgumentsInArray:@[salesRepId]];
+    if (![s next]) return nil;
+    return [SalesRep salesRepWithId:[s intForColumnIndex:0]
+                               name:[s stringForColumnIndex:1]];
+}
+
 - (void)addFilters:(NSMutableString*)query params:(NSMutableDictionary*)params
               year:(NSNumber*)year
            quarter:(NSNumber*)quarter
-           product:(Product*)product
-            region:(Region*)region
-          industry:(Industry*)industry
-          salesRep:(SalesRep*)salesRep {
+           product:(NSNumber*)product
+            region:(NSNumber*)region
+          industry:(NSNumber*)industry
+          salesRep:(NSNumber*)salesRep {
     
     if (year) {
         [query appendString:@" AND strftime('%Y', sales.date)=:year"];
-        [params setObject:year forKey:@"year"];
+        [params setObject:[year stringValue] forKey:@"year"];
     }
     
     if (quarter) {
@@ -212,31 +251,31 @@
     
     if (product) {
         [query appendString:@" AND sales.product_id=:product"];
-        [params setObject:[NSNumber numberWithInt:product.productId] forKey:@"product"];
+        [params setObject:product forKey:@"product"];
     }
     
     if (region) {
         [query appendString:@" AND sales.region_id=:region"];
-        [params setObject:[NSNumber numberWithInt:region.regionId] forKey:@"region"];
+        [params setObject:region forKey:@"region"];
     }
     
     if (industry) {
         [query appendString:@" AND product.industry_id=:industry AND industry.id=:industry"];
-        [params setObject:[NSNumber numberWithInt:industry.industryId] forKey:@"insdustry"];
+        [params setObject:industry forKey:@"industry"];
     }
     
     if (salesRep) {
         [query appendString:@" AND sales.rep_id=:sales_rep"];
-        [params setObject:[NSNumber numberWithInt:salesRep.salesRepId] forKey:@"sales_rep"];
+        [params setObject:salesRep forKey:@"sales_rep"];
     }
 }
 
 - (NSArray*)revenueByIndustryInYear:(NSNumber*)year
                           inQuarter:(NSNumber*)quarter
-                         forProduct:(Product*)product
-                           inRegion:(Region*)region
-                        forIndustry:(Industry*)industry
-                           salesRep:(SalesRep*)salesRep {
+                         forProduct:(NSNumber*)product
+                           inRegion:(NSNumber*)region
+                        forIndustry:(NSNumber*)industry
+                           salesRep:(NSNumber*)salesRep {
     
     NSMutableArray *res = [[NSMutableArray alloc] init];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
@@ -250,42 +289,42 @@
     
     FMResultSet *s = [self.db executeQuery: query withParameterDictionary:params];
     while ([s next]) {
-        [res addObject:@{@"revenue": [NSNumber numberWithDouble:[s doubleForColumn:@"revenue"]],
-                         @"industry": [s stringForColumn:@"name"]}];
+        [res addObject:@[[s stringForColumn:@"name"],
+                         [NSNumber numberWithDouble:[s doubleForColumn:@"revenue"]]]];
     }
     return res;
 }
 
 - (NSArray*)revenueBySalesRepInYear:(NSNumber *)year
                           inQuarter:(NSNumber *)quarter
-                         forProduct:(Product *)product
-                           inRegion:(Region *)region
-                        forIndustry:(Industry *)industry
-                           salesRep:(SalesRep *)salesRep {
+                         forProduct:(NSNumber *)product
+                           inRegion:(NSNumber *)region
+                        forIndustry:(NSNumber *)industry
+                           salesRep:(NSNumber *)salesRep {
     NSMutableArray *res = [[NSMutableArray alloc] init];
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     NSMutableString *query = [[NSMutableString alloc]
                               initWithString:@"SELECT sales_reps.name AS name, SUM(sales.total) AS revenue "
-                                              "FROM industry, sales, sales_reps "
+                                              "FROM industry, sales, sales_reps, product "
                                               "WHERE sales_reps.id = sales.rep_id"];
     [self addFilters:query params:params year:year quarter:quarter product:product region:region industry:industry salesRep:salesRep];
     [query appendString:@" GROUP BY sales_reps.id ORDER BY 1"];
     
     FMResultSet *s = [self.db executeQuery: query withParameterDictionary:params];
     while ([s next]) {
-        [res addObject:@{@"revenue": [NSNumber numberWithDouble:[s doubleForColumn:@"revenue"]],
-                         @"name": [s stringForColumn:@"name"]}];
+        [res addObject:@[[s stringForColumn:@"name"],
+                         [NSNumber numberWithDouble:[s doubleForColumn:@"revenue"]]]];
     }
     return res;
 }
 
 - (NSArray*)revenueByProductInYear:(NSNumber*)year
                          inQuarter:(NSNumber*)quarter
-                        forProduct:(Product*)product
-                          inRegion:(Region*)region
-                       forIndustry:(Industry*)industry
-                          salesRep:(SalesRep*)salesRep {
+                        forProduct:(NSNumber*)product
+                          inRegion:(NSNumber*)region
+                       forIndustry:(NSNumber*)industry
+                          salesRep:(NSNumber*)salesRep {
     
     NSMutableArray *res = [[NSMutableArray alloc] init];
     
@@ -299,18 +338,18 @@
     
     FMResultSet *s = [self.db executeQuery: query withParameterDictionary:params];
     while ([s next]) {
-        [res addObject:@{@"revenue": [NSNumber numberWithDouble:[s doubleForColumn:@"revenue"]],
-                         @"name": [s stringForColumn:@"name"]}];
+        [res addObject:@[[s stringForColumn:@"name"],
+                         [NSNumber numberWithDouble:[s doubleForColumn:@"revenue"]]]];
     }
     return res;
 }
 
 - (NSArray*)revenueByQuarterInYear:(NSNumber*)year
                          inQuarter:(NSNumber*)quarter
-                        forProduct:(Product*)product
-                          inRegion:(Region*)region
-                       forIndustry:(Industry*)industry
-                          salesRep:(SalesRep*)salesRep {
+                        forProduct:(NSNumber*)product
+                          inRegion:(NSNumber*)region
+                       forIndustry:(NSNumber*)industry
+                          salesRep:(NSNumber*)salesRep {
     NSMutableArray *res = [[NSMutableArray alloc] init];
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
@@ -324,21 +363,21 @@
                              "SUM(CASE WHEN sales.quarter=2 THEN sales.total ELSE 0 END) AS q3, "
                              "SUM(CASE WHEN sales.quarter=3 THEN sales.total ELSE 0 END) AS q4 "];
     }
-    [query appendString:@"FROM sales, product WHERE 1"];
+    [query appendString:@"FROM industry, sales, product WHERE 1"];
     [self addFilters:query params:params year:year quarter:quarter product:product region:region industry:industry salesRep:salesRep];
     [query appendString:@" GROUP BY 1 ORDER BY 1"];
     
     FMResultSet *s = [self.db executeQuery: query withParameterDictionary:params];
     while ([s next]) {
         if (quarter)
-            [res addObject:@{@"revenue": [NSNumber numberWithDouble:[s doubleForColumn:@"revenue"]],
-                             @"year": [NSNumber numberWithInt:[s intForColumn:@"year"]]}];
+            [res addObject:@[[NSNumber numberWithInt:[s intForColumn:@"year"]],
+                             [NSNumber numberWithDouble:[s doubleForColumn:@"revenue"]]]];
         else
-            [res addObject:@{@"q1": [NSNumber numberWithDouble:[s doubleForColumn:@"q1"]],
-                             @"q2": [NSNumber numberWithDouble:[s doubleForColumn:@"q2"]],
-                             @"q3": [NSNumber numberWithDouble:[s doubleForColumn:@"q3"]],
-                             @"q4": [NSNumber numberWithDouble:[s doubleForColumn:@"q4"]],
-                             @"year": [NSNumber numberWithInt:[s intForColumn:@"year"]]}];
+            [res addObject:@[[NSNumber numberWithInt:[s intForColumn:@"year"]],
+                             [NSNumber numberWithDouble:[s doubleForColumn:@"q1"]],
+                             [NSNumber numberWithDouble:[s doubleForColumn:@"q2"]],
+                             [NSNumber numberWithDouble:[s doubleForColumn:@"q3"]],
+                             [NSNumber numberWithDouble:[s doubleForColumn:@"q4"]]]];
     }
     return res;
 }

@@ -6,13 +6,11 @@
 //  Copyright (c) 2015 AnyChart. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "IdNameModel.h"
 
-@interface Product : NSObject
+@interface Product : IdNameModel
 
-@property (readonly) int productId;
 @property (readonly) int industryId;
-@property (readonly) NSString* name;
 
 + (Product*)productWithId:(int)productId industry:(int)industryId name:(NSString*)name;
 

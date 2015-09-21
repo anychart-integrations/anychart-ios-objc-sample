@@ -11,14 +11,11 @@
 @implementation Industry
 
 + (Industry*)industryWithId:(int)industryId name:(NSString*)name {
-    Industry *res = [[Industry alloc] init];
-    res->_industryId = industryId;
-    res->_name = name;
-    return res;
+    return [[Industry alloc] initWithId:industryId name:name];
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"[Industry id=%i, name=%@]", self.industryId, self.name];
+    return [NSString stringWithFormat:@"[Industry id=%i, name=%@]", self.identifier, self.name];
 }
 
 @end

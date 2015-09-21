@@ -11,15 +11,13 @@
 @implementation Product
 
 + (Product*)productWithId:(int)productId industry:(int)industryId name:(NSString*)name {
-    Product *res = [[Product alloc] init];
-    res->_productId = productId;
+    Product *res = [[Product alloc] initWithId:productId name:name];
     res->_industryId = industryId;
-    res->_name = name;
     return res;
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"[Product id=%i, industry_id=%i, name=%@]", self.productId, self.industryId, self.name];
+    return [NSString stringWithFormat:@"[Product id=%i, industry_id=%i, name=%@]", self.identifier, self.industryId, self.name];
 }
 
 @end

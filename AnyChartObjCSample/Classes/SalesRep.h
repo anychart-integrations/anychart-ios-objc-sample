@@ -6,12 +6,9 @@
 //  Copyright (c) 2015 AnyChart. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "IdNameModel.h"
 
-@interface SalesRep : NSObject
-
-@property (readonly) int salesRepId;
-@property (readonly) NSString* name;
+@interface SalesRep : IdNameModel
 
 + (SalesRep*)salesRepWithId:(int)salesId name:(NSString*)name;
 

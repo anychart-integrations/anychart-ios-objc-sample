@@ -1,0 +1,64 @@
+<!doctype html>
+<head>
+    <script src="https://cdn.anychart.com/js/latest/anychart.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style type="text/css">
+        .chart { height: 400px; }
+    </style>
+    <body>
+        <div class="container-fluid">
+            <h1>Sales dashboard</h1>
+            <div class="row">
+                <div class="col-xs-6 chart" id="industry"></div>
+                <div class="col-xs-6 chart" id="sales"></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 chart" id="product"></div>
+                <div class="col-xs-6 chart" id="quarter"></div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            anychart.theme({"defaultTooltip": {"title": {"enabled": false}}});
+            var charts = [];
+            
+            function clear() {
+                for (var i = 0; i < charts.length; i++) {
+                    charts[i].dispose();
+                }
+
+                // ANYCHART BUG::
+                document.getElementById("industry").innerHTML = "";
+                document.getElementById("sales").innerHTML = "";
+                document.getElementById("product").innerHTML = "";
+                document.getElementById("quarter").innerHTML = "";
+                // -- END OF ANYCHART BUG
+            }
+        
+            function showCharts(chartsData) {
+                var barChart = anychart.bar(chartsData["revenue-by-industry"]);
+                barChart.container("industry");
+                barChart.title("Revenue by industry");
+                barChart.draw();
+                
+                var columnChart = anychart.column(chartsData["revenue-by-sales"]);
+                columnChart.container("sales");
+                columnChart.title("Revenue by sales rep");
+                columnChart.draw();
+                
+                var pieChart = anychart.pie(chartsData["revenue-by-product"]);
+                pieChart.container("product");
+                pieChart.title("Revenue by product");
+                pieChart.draw();
+                
+                var lineChart = anychart.line.apply(null, anychart.data.mapAsTable(chartsData["revenue-by-quarter"]));
+                lineChart.container("quarter");
+                lineChart.title("Revenue by quarter");
+                lineChart.draw();
+                
+                charts = [barChart, columnChart, pieChart, lineChart];
+            };
+        </script>
+    </body>
+</html>

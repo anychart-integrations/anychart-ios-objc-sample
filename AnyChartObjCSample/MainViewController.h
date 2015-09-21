@@ -1,15 +1,15 @@
 //
-//  Industry.h
+//  ViewController.h
 //  AnyChartObjCSample
 //
 //  Created by Alexandr Batcuyev on 9/17/15.
 //  Copyright (c) 2015 AnyChart. All rights reserved.
 //
 
-#import "IdNameModel.h"
+#import <UIKit/UIKit.h>
 
-@interface Industry : IdNameModel
+@interface MainViewController : UIViewController <UIWebViewDelegate>
 
-+ (Industry*)industryWithId:(int)industryId name:(NSString*)name;
 
 @end
+
