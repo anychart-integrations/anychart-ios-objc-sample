@@ -14,7 +14,7 @@
 		FAB0D5861BAA624A0095AEDB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D5851BAA624A0095AEDB /* main.m */; };
 		FAB0D5891BAA624A0095AEDB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D5881BAA624A0095AEDB /* AppDelegate.m */; };
 		FAB0D58C1BAA624A0095AEDB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D58B1BAA624A0095AEDB /* MainViewController.m */; };
-		FAB0D58F1BAA624A0095AEDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB0D58D1BAA624A0095AEDB /* Main.storyboard */; };
+		FAB0D58F1BAA624A0095AEDB /* MainIPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB0D58D1BAA624A0095AEDB /* MainIPad.storyboard */; };
 		FAB0D5911BAA624A0095AEDB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB0D5901BAA624A0095AEDB /* Images.xcassets */; };
 		FAB0D5941BAA624A0095AEDB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB0D5921BAA624A0095AEDB /* LaunchScreen.xib */; };
 		FAB0D5AD1BAA626E0095AEDB /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D5AC1BAA626E0095AEDB /* Data.m */; };
@@ -22,6 +22,16 @@
 		FAB0D5B71BAA781F0095AEDB /* Industry.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D5B61BAA781F0095AEDB /* Industry.m */; };
 		FAB0D5BA1BAA785A0095AEDB /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D5B91BAA785A0095AEDB /* Region.m */; };
 		FAB0D5BD1BAA78740095AEDB /* SalesRep.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB0D5BC1BAA78740095AEDB /* SalesRep.m */; };
+		FAB6EED81BB8DB3800E5F947 /* bar.html in Resources */ = {isa = PBXBuildFile; fileRef = FAB6EED71BB8DB3800E5F947 /* bar.html */; settings = {ASSET_TAGS = (); }; };
+		FAB6EEDA1BB8DC6100E5F947 /* column.html in Resources */ = {isa = PBXBuildFile; fileRef = FAB6EED91BB8DC6100E5F947 /* column.html */; settings = {ASSET_TAGS = (); }; };
+		FAB6EEDC1BB8DC9600E5F947 /* pie.html in Resources */ = {isa = PBXBuildFile; fileRef = FAB6EEDB1BB8DC9600E5F947 /* pie.html */; settings = {ASSET_TAGS = (); }; };
+		FAB6EEE01BB8DCC200E5F947 /* line.html in Resources */ = {isa = PBXBuildFile; fileRef = FAB6EEDF1BB8DCC200E5F947 /* line.html */; settings = {ASSET_TAGS = (); }; };
+		FAB6EEE21BB8DD4B00E5F947 /* MainIPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB6EEE11BB8DD4B00E5F947 /* MainIPhone.storyboard */; settings = {ASSET_TAGS = (); }; };
+		FAB6EEE51BB8DDE400E5F947 /* ChartBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB6EEE41BB8DDE400E5F947 /* ChartBaseViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FAB6EEE91BB8E1EF00E5F947 /* ByIndustryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB6EEE81BB8E1EF00E5F947 /* ByIndustryViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FAB6EEEC1BB8E2E100E5F947 /* ByProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB6EEEB1BB8E2E100E5F947 /* ByProductViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FAB6EEEF1BB8E33300E5F947 /* BySalesRepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB6EEEE1BB8E33300E5F947 /* BySalesRepViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FAB6EEF21BB8E39500E5F947 /* ByQuarterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB6EEF11BB8E39500E5F947 /* ByQuarterViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FADE042D1BABF1720051DB1E /* FiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FADE042C1BABF1720051DB1E /* FiltersViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +51,7 @@
 		FAB0D5881BAA624A0095AEDB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FAB0D58A1BAA624A0095AEDB /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		FAB0D58B1BAA624A0095AEDB /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		FAB0D58E1BAA624A0095AEDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FAB0D58E1BAA624A0095AEDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainIPad.storyboard; sourceTree = "<group>"; };
 		FAB0D5901BAA624A0095AEDB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FAB0D5931BAA624A0095AEDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FAB0D5AB1BAA626E0095AEDB /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Data.h; path = Classes/Data.h; sourceTree = "<group>"; };
@@ -54,6 +64,21 @@
 		FAB0D5B91BAA785A0095AEDB /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Region.m; path = Classes/Region.m; sourceTree = "<group>"; };
 		FAB0D5BB1BAA78740095AEDB /* SalesRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SalesRep.h; path = Classes/SalesRep.h; sourceTree = "<group>"; };
 		FAB0D5BC1BAA78740095AEDB /* SalesRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SalesRep.m; path = Classes/SalesRep.m; sourceTree = "<group>"; };
+		FAB6EED71BB8DB3800E5F947 /* bar.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = bar.html; sourceTree = "<group>"; };
+		FAB6EED91BB8DC6100E5F947 /* column.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = column.html; sourceTree = "<group>"; };
+		FAB6EEDB1BB8DC9600E5F947 /* pie.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pie.html; sourceTree = "<group>"; };
+		FAB6EEDF1BB8DCC200E5F947 /* line.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = line.html; sourceTree = "<group>"; };
+		FAB6EEE11BB8DD4B00E5F947 /* MainIPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainIPhone.storyboard; sourceTree = "<group>"; };
+		FAB6EEE31BB8DDE400E5F947 /* ChartBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChartBaseViewController.h; path = Classes/ChartBaseViewController.h; sourceTree = "<group>"; };
+		FAB6EEE41BB8DDE400E5F947 /* ChartBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChartBaseViewController.m; path = Classes/ChartBaseViewController.m; sourceTree = "<group>"; };
+		FAB6EEE71BB8E1EF00E5F947 /* ByIndustryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByIndustryViewController.h; path = Classes/ByIndustryViewController.h; sourceTree = "<group>"; };
+		FAB6EEE81BB8E1EF00E5F947 /* ByIndustryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ByIndustryViewController.m; path = Classes/ByIndustryViewController.m; sourceTree = "<group>"; };
+		FAB6EEEA1BB8E2E100E5F947 /* ByProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByProductViewController.h; path = Classes/ByProductViewController.h; sourceTree = "<group>"; };
+		FAB6EEEB1BB8E2E100E5F947 /* ByProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ByProductViewController.m; path = Classes/ByProductViewController.m; sourceTree = "<group>"; };
+		FAB6EEED1BB8E33300E5F947 /* BySalesRepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BySalesRepViewController.h; path = Classes/BySalesRepViewController.h; sourceTree = "<group>"; };
+		FAB6EEEE1BB8E33300E5F947 /* BySalesRepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BySalesRepViewController.m; path = Classes/BySalesRepViewController.m; sourceTree = "<group>"; };
+		FAB6EEF01BB8E39500E5F947 /* ByQuarterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByQuarterViewController.h; path = Classes/ByQuarterViewController.h; sourceTree = "<group>"; };
+		FAB6EEF11BB8E39500E5F947 /* ByQuarterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ByQuarterViewController.m; path = Classes/ByQuarterViewController.m; sourceTree = "<group>"; };
 		FADE042B1BABF1720051DB1E /* FiltersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FiltersViewController.h; path = Classes/FiltersViewController.h; sourceTree = "<group>"; };
 		FADE042C1BABF1720051DB1E /* FiltersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FiltersViewController.m; path = Classes/FiltersViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,13 +147,10 @@
 		FAB0D5A91BAA62510095AEDB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FAB0D58A1BAA624A0095AEDB /* MainViewController.h */,
-				FAB0D58B1BAA624A0095AEDB /* MainViewController.m */,
-				FADE042B1BABF1720051DB1E /* FiltersViewController.h */,
-				FADE042C1BABF1720051DB1E /* FiltersViewController.m */,
-				FAB0D58D1BAA624A0095AEDB /* Main.storyboard */,
+				FAB6EED61BB8DB2100E5F947 /* Charts */,
+				FAB6EEE61BB8E14100E5F947 /* iPhone */,
+				FAB6EEF31BB92A0A00E5F947 /* iPad */,
 				FAB0D5921BAA624A0095AEDB /* LaunchScreen.xib */,
-				FA958A4E1BABBAF6005562C9 /* charts.html */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -169,6 +191,48 @@
 				FA01B8D71BAFBC7A009510F3 /* IdNameModel.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		FAB6EED61BB8DB2100E5F947 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				FA958A4E1BABBAF6005562C9 /* charts.html */,
+				FAB6EED71BB8DB3800E5F947 /* bar.html */,
+				FAB6EED91BB8DC6100E5F947 /* column.html */,
+				FAB6EEDB1BB8DC9600E5F947 /* pie.html */,
+				FAB6EEDF1BB8DCC200E5F947 /* line.html */,
+			);
+			name = Charts;
+			sourceTree = "<group>";
+		};
+		FAB6EEE61BB8E14100E5F947 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				FAB6EEE11BB8DD4B00E5F947 /* MainIPhone.storyboard */,
+				FAB6EEE31BB8DDE400E5F947 /* ChartBaseViewController.h */,
+				FAB6EEE41BB8DDE400E5F947 /* ChartBaseViewController.m */,
+				FAB6EEE71BB8E1EF00E5F947 /* ByIndustryViewController.h */,
+				FAB6EEE81BB8E1EF00E5F947 /* ByIndustryViewController.m */,
+				FAB6EEEA1BB8E2E100E5F947 /* ByProductViewController.h */,
+				FAB6EEEB1BB8E2E100E5F947 /* ByProductViewController.m */,
+				FAB6EEED1BB8E33300E5F947 /* BySalesRepViewController.h */,
+				FAB6EEEE1BB8E33300E5F947 /* BySalesRepViewController.m */,
+				FAB6EEF01BB8E39500E5F947 /* ByQuarterViewController.h */,
+				FAB6EEF11BB8E39500E5F947 /* ByQuarterViewController.m */,
+				FADE042B1BABF1720051DB1E /* FiltersViewController.h */,
+				FADE042C1BABF1720051DB1E /* FiltersViewController.m */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		FAB6EEF31BB92A0A00E5F947 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				FAB0D58D1BAA624A0095AEDB /* MainIPad.storyboard */,
+				FAB0D58A1BAA624A0095AEDB /* MainViewController.h */,
+				FAB0D58B1BAA624A0095AEDB /* MainViewController.m */,
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,9 +294,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAB0D58F1BAA624A0095AEDB /* Main.storyboard in Resources */,
+				FAB0D58F1BAA624A0095AEDB /* MainIPad.storyboard in Resources */,
 				FAB0D5941BAA624A0095AEDB /* LaunchScreen.xib in Resources */,
+				FAB6EEDA1BB8DC6100E5F947 /* column.html in Resources */,
+				FAB6EED81BB8DB3800E5F947 /* bar.html in Resources */,
+				FAB6EEE21BB8DD4B00E5F947 /* MainIPhone.storyboard in Resources */,
+				FAB6EEE01BB8DCC200E5F947 /* line.html in Resources */,
 				FAB0D5911BAA624A0095AEDB /* Images.xcassets in Resources */,
+				FAB6EEDC1BB8DC9600E5F947 /* pie.html in Resources */,
 				FA958A4F1BABBAF6005562C9 /* charts.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,10 +346,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB6EEE91BB8E1EF00E5F947 /* ByIndustryViewController.m in Sources */,
 				FAB0D5BA1BAA785A0095AEDB /* Region.m in Sources */,
+				FAB6EEF21BB8E39500E5F947 /* ByQuarterViewController.m in Sources */,
 				FA01B8D81BAFBC7A009510F3 /* IdNameModel.m in Sources */,
 				FAB0D58C1BAA624A0095AEDB /* MainViewController.m in Sources */,
+				FAB6EEEF1BB8E33300E5F947 /* BySalesRepViewController.m in Sources */,
 				FAB0D5B71BAA781F0095AEDB /* Industry.m in Sources */,
+				FAB6EEE51BB8DDE400E5F947 /* ChartBaseViewController.m in Sources */,
 				FA01B8D51BAFA78E009510F3 /* Filters.m in Sources */,
 				FAB0D5B31BAA77D60095AEDB /* Product.m in Sources */,
 				FAB0D5BD1BAA78740095AEDB /* SalesRep.m in Sources */,
@@ -288,18 +361,19 @@
 				FADE042D1BABF1720051DB1E /* FiltersViewController.m in Sources */,
 				FAB0D5861BAA624A0095AEDB /* main.m in Sources */,
 				FAB0D5AD1BAA626E0095AEDB /* Data.m in Sources */,
+				FAB6EEEC1BB8E2E100E5F947 /* ByProductViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FAB0D58D1BAA624A0095AEDB /* Main.storyboard */ = {
+		FAB0D58D1BAA624A0095AEDB /* MainIPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FAB0D58E1BAA624A0095AEDB /* Base */,
 			);
-			name = Main.storyboard;
+			name = MainIPad.storyboard;
 			sourceTree = "<group>";
 		};
 		FAB0D5921BAA624A0095AEDB /* LaunchScreen.xib */ = {

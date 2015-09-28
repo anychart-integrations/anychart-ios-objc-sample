@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UIViewController <UIWebViewDelegate>
+@interface MainViewController : UIViewController <UIWebViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 
 @end

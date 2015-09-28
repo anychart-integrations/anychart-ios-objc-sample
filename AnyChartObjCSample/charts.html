@@ -8,7 +8,6 @@
     </style>
     <body>
         <div class="container-fluid">
-            <h1>Sales dashboard</h1>
             <div class="row">
                 <div class="col-xs-6 chart" id="industry"></div>
                 <div class="col-xs-6 chart" id="sales"></div>
@@ -45,11 +44,13 @@
                 var columnChart = anychart.column(chartsData["revenue-by-sales"]);
                 columnChart.container("sales");
                 columnChart.title("Revenue by sales rep");
+                columnChart.xAxis().labels().rotation(-90).offsetY(5);
                 columnChart.draw();
                 
                 var pieChart = anychart.pie(chartsData["revenue-by-product"]);
                 pieChart.container("product");
                 pieChart.title("Revenue by product");
+                pieChart.legend().position("left").itemsLayout("vertical");
                 pieChart.draw();
                 
                 var lineChart = anychart.line.apply(null, anychart.data.mapAsTable(chartsData["revenue-by-quarter"]));

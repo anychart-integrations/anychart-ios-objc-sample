@@ -12,8 +12,8 @@
 
 @interface FiltersViewController ()
 
-@property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
-@property (weak, nonatomic) IBOutlet UIView *overlayView;
+@property (strong, nonatomic) UIPickerView *pickerView;
+@property (strong, nonatomic) UIView *overlayView;
 @property (weak, nonatomic) IBOutlet UIButton *yearsButton;
 @property (weak, nonatomic) IBOutlet UIButton *quartersButton;
 @property (weak, nonatomic) IBOutlet UIButton *industryButton;
@@ -31,7 +31,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.pickerView = [[UIPickerView alloc] init];
+    self.pickerView.dataSource = self;
+    self.pickerView.delegate = self;
+    self.pickerView.backgroundColor = [UIColor whiteColor];
     [self updateFilters];
+    
+    self.overlayView = [[UIView alloc] init];
+    self.overlayView.backgroundColor = [UIColor colorWithRed:0.6f green:0.6f blue:0.6f alpha:0.3f];
+    
+    [self.overlayView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                   action:@selector(hideFilter:)]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -82,14 +92,18 @@
     
     [self.pickerView reloadAllComponents];
     
-    CGFloat height = self.view.frame.size.height;
+    CGFloat height = [[UIScreen mainScreen] bounds].size.height;
     CGPoint offScreenBelow = CGPointMake(0, height);
     CGPoint onScreen = CGPointMake(0, height - self.pickerView.frame.size.height);
     CGRect frame = self.pickerView.frame;
     frame.size = CGSizeMake(self.view.bounds.size.width, frame.size.height);
     frame.origin = offScreenBelow;
     self.pickerView.frame = frame;
-    [self.view addSubview:self.pickerView];
+    
+    self.overlayView.hidden = YES;
+    self.overlayView.frame = [UIScreen mainScreen].bounds;
+    [[[UIApplication sharedApplication] keyWindow] addSubview:self.overlayView];
+    [[[UIApplication sharedApplication] keyWindow] addSubview:self.pickerView];
     
     if (self.selectedFitlerItem != nil) {
         int val = [self.selectedFitlerItem intValue];
@@ -140,7 +154,7 @@
                          self.pickerView.frame = frame;
                      }
                      completion:^(BOOL finished){
-                         self.overlayView.hidden = YES;
+                         [self.overlayView removeFromSuperview];
                          [self.pickerView removeFromSuperview];
                      }];
 }

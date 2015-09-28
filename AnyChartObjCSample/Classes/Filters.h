@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, FilterKey) {
-    FilterKeyYear,
+    FilterKeyYear = 0,
     FilterKeyQuarter,
     FilterKeyProductId,
     FilterKeyRegionId,
