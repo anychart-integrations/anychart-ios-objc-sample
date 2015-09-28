@@ -5,5 +5,9 @@ This sample demonstrates how to use AnyChart in iOS project with SQLite database
 * XCode 6+
 * Cocoa Pods
 
+## Preview
+![iPad](ipad.gif)
+![iPhone](iphone.gif)
+
 ## Setup project
 Run `pod install` before opening, then open AnyChartObjCSample xcode workspace.

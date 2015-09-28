@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wZZ-GG-OyB">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="J1m-8t-PFb">
+            <objects>
+                <viewController id="wZZ-GG-OyB" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="arT-In-hVI"/>
+                        <viewControllerLayoutGuide type="bottom" id="tZ4-hW-w61"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sd3-hR-oht">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0g-hh-bKX">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="m9c-bd-7ha"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="wZZ-GG-OyB" id="Qwy-TK-JFA"/>
+                                    <outlet property="delegate" destination="wZZ-GG-OyB" id="KeN-hH-Nqg"/>
+                                </connections>
+                            </pickerView>
+                            <webView contentMode="scaleToFill" allowsInlineMediaPlayback="NO" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVg-B7-eaR">
+                                <rect key="frame" x="0.0" y="216" width="320" height="352"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                                <connections>
+                                    <outlet property="delegate" destination="wZZ-GG-OyB" id="lVS-9C-W3K"/>
+                                </connections>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oS-on-BXN">
+                                <rect key="frame" x="262" y="20" width="42" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="0Aa-H0-G9S"/>
+                                    <constraint firstAttribute="height" constant="30" id="UvB-Oe-cK2"/>
+                                </constraints>
+                                <state key="normal" title="Filters"/>
+                                <connections>
+                                    <action selector="toggleFilters:" destination="wZZ-GG-OyB" eventType="touchUpInside" id="1oO-5S-4Rz"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="uMa-Pk-by8">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Ky3-8P-Tbl"/>
+                                    <constraint firstAttribute="width" constant="20" id="sx6-3N-d17"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="t0g-hh-bKX" secondAttribute="trailing" id="BsK-kf-A14"/>
+                            <constraint firstAttribute="trailing" secondItem="1oS-on-BXN" secondAttribute="trailing" constant="16" id="IAa-9m-hMe"/>
+                            <constraint firstAttribute="trailing" secondItem="LVg-B7-eaR" secondAttribute="trailing" id="K5v-dD-odJ"/>
+                            <constraint firstItem="t0g-hh-bKX" firstAttribute="top" secondItem="Sd3-hR-oht" secondAttribute="top" id="QkI-zg-Bhg"/>
+                            <constraint firstAttribute="bottom" secondItem="LVg-B7-eaR" secondAttribute="bottom" id="ZVa-xB-624"/>
+                            <constraint firstAttribute="centerX" secondItem="uMa-Pk-by8" secondAttribute="centerX" id="Zde-PJ-fFN"/>
+                            <constraint firstItem="t0g-hh-bKX" firstAttribute="leading" secondItem="Sd3-hR-oht" secondAttribute="leading" id="ayJ-G5-qmq"/>
+                            <constraint firstItem="LVg-B7-eaR" firstAttribute="top" secondItem="t0g-hh-bKX" secondAttribute="bottom" id="eG8-py-naM"/>
+                            <constraint firstItem="1oS-on-BXN" firstAttribute="top" secondItem="Sd3-hR-oht" secondAttribute="top" constant="20" id="orT-8i-5Km"/>
+                            <constraint firstItem="LVg-B7-eaR" firstAttribute="leading" secondItem="Sd3-hR-oht" secondAttribute="leading" id="pEw-8Z-DJe"/>
+                            <constraint firstAttribute="centerY" secondItem="uMa-Pk-by8" secondAttribute="centerY" id="ufH-5z-Gp1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ti6-Ei-UMn"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="uMa-Pk-by8" id="0BI-gA-odM"/>
+                        <outlet property="filtersButton" destination="1oS-on-BXN" id="2uO-4i-1uo"/>
+                        <outlet property="pickerView" destination="t0g-hh-bKX" id="sFa-1K-kdv"/>
+                        <outlet property="pickerViewTopSpace" destination="QkI-zg-Bhg" id="4da-NZ-ODX"/>
+                        <outlet property="webView" destination="LVg-B7-eaR" id="wq6-la-J4k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MTH-jt-Cpe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="547" y="257"/>
+        </scene>
+    </scenes>
+</document>
