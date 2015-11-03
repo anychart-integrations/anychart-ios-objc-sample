@@ -26,13 +26,10 @@
                 for (var i = 0; i < charts.length; i++) {
                     charts[i].dispose();
                 }
-
-                // ANYCHART BUG::
                 document.getElementById("industry").innerHTML = "";
                 document.getElementById("sales").innerHTML = "";
                 document.getElementById("product").innerHTML = "";
                 document.getElementById("quarter").innerHTML = "";
-                // -- END OF ANYCHART BUG
             }
         
             function showCharts(chartsData) {
