@@ -1,5 +1,5 @@
 # anychart iOS Objective C sample
-This sample demonstrates how to use AnyChart in iOS project with SQLite database.
+This example shows how to use AnyChart charting library in iOS application with SQLite database.
 
 ## Requirenments
 * XCode 6+
